@@ -1,0 +1,26 @@
+.v-container{
+   background-color: #2F2F2F;
+}
+
+@media (max-width: 760px) {
+   .v-container {
+      position: absolute;
+      height: 5vh;
+      bottom: 0px;
+      width: 100%;
+   }
+}
+
+@media (min-width: 760px){
+   .v-container {
+     width: 54px;
+     height: 94vh;
+   }
+}
+
+@media (min-width: 920px){
+   .v-container {
+     width: 62px;
+     height: 94vh;
+   }
+}

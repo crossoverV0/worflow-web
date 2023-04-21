@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-tasks',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: `<router-outlet></router-outlet>`,
+  styleUrls: ['./tasks.component.scss']
+})
+export class TasksComponent {
+
+}

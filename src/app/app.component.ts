@@ -1,33 +1,36 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './common/services/theme.service';
+import { Subject, takeUntil } from 'rxjs';
+import { ThemeType } from './common/services/theme.type';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [RouterModule],
-  template: `<div [class]="theme">
-    <!-- <button (click)="themeE()">Change Theme</button> -->
-  <router-outlet></router-outlet></div>`,
+  imports: [RouterOutlet],
+  template: `
+    <div [class]="theme">
+      <router-outlet></router-outlet>
+    </div>
+  `,
 })
-export class AppComponent {
-  title = 'workflow';
-  theme = 'light';
+export class AppComponent implements OnInit, OnDestroy {
+  private readonly _themeService = inject(ThemeService);
+  theme: ThemeType = 'theme-dark';
+  destroy$ = new Subject<void>();
 
-  model: FormGroup = this.getForm()
-
-  constructor(
-    private _builder: FormBuilder,
-  ){}
-
-  getForm(){
-    return this._builder.group({
-      texto: ['teste']
-    });
+  ngOnInit(): void {
+    this.observerThemeChanges();
   }
 
-  themeE(){
-    this.theme = 'dark'
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  observerThemeChanges() {
+    this._themeService.theme$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((theme) => (this.theme = theme));
   }
 }

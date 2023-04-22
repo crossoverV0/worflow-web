@@ -1,5 +1,7 @@
-$background-color-100: #444444;
-$background-color-200: #2F2F2F;
-$background-color-300: #1E1E1E;
-$background-color-400: #161616;
-$background-color-500: #101010;
+*.theme-dark {
+  --background-color-100: #444444;
+  --background-color-200: #2f2f2f;
+  --background-color-300: #1e1e1e;
+  --background-color-400: #161616;
+  --background-color-500: #101010;
+}

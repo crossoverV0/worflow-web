@@ -1,21 +1,6 @@
-// @import './assets/styles/themes/themes.scss';
 .v-content {
-  background-color: var(--text-color);
+  background-color: var(--background-color-100);
   padding: 2%;
   width: 100%;
   height: auto;
-
-  // &.light {
-  //   --primary-color: #007bff;
-  //   --secondary-color: #6c757d;
-  //   --background-color: #f8f9fa;
-  //   --text-color: #212529;
-  // }
-
-  // &.dark {
-  //   --primary-color: #007bff;
-  //   --secondary-color: #6c757d;
-  //   --background-color: #212529;
-  //   --text-color: #f8f9fa;
-  // }
 }

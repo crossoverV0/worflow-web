@@ -1,9 +1,10 @@
 <header>
    <app-header></app-header>
 </header>
-<div style="display: flex;">
+<div style="display: flex;" >
    <app-side-nav></app-side-nav>
-   <section class="v-content">
+   <section class="v-content" [class]="theme">
+      <button style="color: var(--primary-color);" (click)="toggleTheme()">Toggle Theme</button>
       <router-outlet></router-outlet>
    </section>
 </div>

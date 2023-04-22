@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from './common/services/theme.service';
 
 @Component({
   standalone: true, 
@@ -15,6 +16,7 @@ export class AppComponent {
 
   constructor(
     private _builder: FormBuilder,
+    private themeService: ThemeService
   ){}
 
   getForm(){

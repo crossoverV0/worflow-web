@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from 'src/app/shared/components/organisms/header/header.component';
-import { SideNavComponent } from 'src/app/shared/components/organisms/side-nav/side-nav.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from 'src/app/common/components/organisms/header/header.component';
+import { SideNavComponent } from 'src/app/common/components/organisms/side-nav/side-nav.component';
 
 @Component({
   selector: 'app-page',

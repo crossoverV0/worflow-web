@@ -1,15 +1,23 @@
-.light-theme {
-   --background-color-100: #F9F9F9;
-   --background-color-200: #F5F5F5;
-   --background-color-300: #ECECEC;
-   --background-color-400: #6E6E6E;
-   --background-color-500: #161616;
- }
+:root{
+  --background-color-100: #F9F9F9;
+  --background-color-200: #F5F5F5;
+  --background-color-300: #ECECEC;
+  --background-color-400: #6E6E6E;
+  --background-color-500: #444444;
+  --background-color-600: #2F2F2F;
+  --background-color-700: #1E1E1E;
+  --background-color-800: #161616;
+  --background-color-900: #101010;
+}
+
+.dark-theme {
+  --bg-color-sidenave: var(--background-color-800);
+  --bg-color-header: var(--background-color-900);
+  --bg-color-router: var(--background-color-700)
+}
  
- .dark-theme {
-   --background-color-100: #444444;
-   --background-color-200: #2F2F2F;
-   --background-color-300: #1E1E1E;
-   --background-color-400: #161616;
-   --background-color-500: #101010;
- }
+.light-theme {
+  --bg-color-sidenave: var(--background-color-200);
+  --bg-color-header: var(--background-color-100);
+  --bg-color-router: var(--background-color-300)
+}

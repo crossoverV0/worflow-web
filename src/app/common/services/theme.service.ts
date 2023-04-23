@@ -1,19 +1,36 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+export const theme: { [key: string]: string } = {
+  light: 'light-theme',
+  dark: 'dark-theme',
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  private activeThemeSubject = new BehaviorSubject<string | undefined>(undefined);
 
-  public _switchTheme(theme: string) {
-    const themeLink = this.document.getElementById(
-      'app-theme',
-    ) as HTMLLinkElement;
+  activeTheme$ = this.activeThemeSubject.asObservable();
 
-    if (themeLink) {
-      themeLink.href = `assets/styles/themes/theme-${theme}` + '.scss';
-    }
+  get activeTheme(): string | undefined {
+    return this.activeThemeSubject.getValue();
+  }
+
+  set(themeName: string): void {
+    if (
+      this.activeTheme === themeName ||
+      !this.themeNames.includes(themeName)
+    ) {
+      return;
+    }                                                                      
+    this.activeThemeSubject.next(themeName);
+    document.documentElement.classList.remove(...Object.values(theme));
+    document.documentElement.classList.add(theme[themeName]);
+  }
+
+  get themeNames(): string[] {
+    return Object.keys(theme);
   }
 }

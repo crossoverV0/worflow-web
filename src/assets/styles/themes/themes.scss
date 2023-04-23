@@ -11,13 +11,23 @@
 }
 
 .dark-theme {
+  // background-color
   --bg-color-sidenave: var(--background-color-800);
   --bg-color-header: var(--background-color-900);
-  --bg-color-router: var(--background-color-700)
+  --bg-color-router: var(--background-color-700);
+
+  //border
+  --border-sidenave: var(--background-color-600);
+
+  //disabled item
+  --disabled-item: var(--background-color-400);
+  --active-item: var(--background-color-200)
 }
  
 .light-theme {
   --bg-color-sidenave: var(--background-color-200);
   --bg-color-header: var(--background-color-100);
-  --bg-color-router: var(--background-color-300)
+  --bg-color-router: var(--background-color-300);
+
+  --border-sidenave: var( --background-color-500);
 }

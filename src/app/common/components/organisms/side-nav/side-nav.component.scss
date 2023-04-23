@@ -1,5 +1,28 @@
 .v-container{
    background-color: var(--bg-color-sidenave);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 10px 0px;
+   gap: 0.6rem;
+}
+
+.item-container{
+   padding: 8px 12px;
+   display: flex;
+   align-items: center;
+   border-radius: 2px;
+   cursor: pointer;
+   &:hover{
+      .v-icon{
+         color: var(--active-item)
+      }
+   }
+}
+
+.v-icon{
+   color: var(--disabled-item);
+   transition: color 0.3s ease;
 }
 
 @media (max-width: 760px) {
@@ -15,6 +38,7 @@
    .v-container {
      width: 54px;
      height: 94vh;
+     border-right: 1px solid var(--border-sidenave);
    }
 }
 

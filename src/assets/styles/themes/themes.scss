@@ -13,11 +13,17 @@
 .dark-theme {
   --bg-color-sidenave: var(--background-color-800);
   --bg-color-header: var(--background-color-900);
-  --bg-color-router: var(--background-color-700)
+  --bg-color-router: var(--background-color-700);
+
+  --diabled-item: var(--background-color-400);
+  --active-item: var(--background-color-200);
 }
  
 .light-theme {
   --bg-color-sidenave: var(--background-color-200);
   --bg-color-header: var(--background-color-100);
-  --bg-color-router: var(--background-color-300)
+  --bg-color-router: var(--background-color-300);
+
+  --diabled-item: var(--background-color-400);
+  --active-item: var(--background-color-800);
 }

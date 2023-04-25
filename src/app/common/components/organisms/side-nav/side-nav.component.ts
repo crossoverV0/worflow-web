@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavigationEnd, Router} from '@angular/router';
 
 const NAV_ITEMS = [
   {
@@ -23,6 +24,13 @@ const NAV_ITEMS = [
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss']
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit{
   navItems: any[] = NAV_ITEMS
+
+  constructor(private router: Router){}
+
+  ngOnInit(): void{
+    console.log(this.router)
+    console.log(this.router.url)
+  }
 }

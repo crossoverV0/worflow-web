@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationStart, Router} from '@angular/router';
 import { filter } from 'rxjs';
+import { SideNavItemInterface } from 'src/app/common/interfaces/sidenav-item';
 
 const NAV_ITEMS = [
   {
@@ -29,7 +30,7 @@ const NAV_ITEMS = [
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit{
-  navItems: any[] = NAV_ITEMS
+  navItems: SideNavItemInterface[] = NAV_ITEMS
   currentRoute: string = ''
 
   router = inject(Router)

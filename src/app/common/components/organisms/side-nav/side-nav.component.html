@@ -1,6 +1,6 @@
 <div class="v-container">
    <div (click)="navigate(item.link)" *ngFor="let item of navItems" class="item-container" [title]="item.title">
       <div *ngIf="item.link == currentRoute" class="nav-mark"></div>
-      <i [class]="item.class" [ngClass]="{ 'active-item': item.link == currentRoute }"></i>
+      <i style="font-weight: 100;" [class]="item.class" [ngClass]="{ 'active-item': item.link == currentRoute }"></i>
    </div>
 </div>

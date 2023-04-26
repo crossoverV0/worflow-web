@@ -1,19 +1,23 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router} from '@angular/router';
+import { NavigationStart, Router} from '@angular/router';
+import { filter } from 'rxjs';
 
 const NAV_ITEMS = [
   {
     title: 'Tarefas',
-    class: 'bx bx-task bx-sm v-icon'
+    class: 'bx bx-task bx-sm v-icon',
+    link: '/tarefas/agora'
   },
   {
     title: 'Bugs',
-    class: 'bx bx-bug-alt bx-sm v-icon'
+    class: 'bx bx-bug-alt bx-sm v-icon',
+    link: '/bugs'
   },
   {
     title: 'Notificações',
-    class: 'bx bx-bell bx-sm v-icon'
+    class: 'bx bx-bell bx-sm v-icon',
+    link: '/notificações'
   }
 ]
 
@@ -26,11 +30,19 @@ const NAV_ITEMS = [
 })
 export class SideNavComponent implements OnInit{
   navItems: any[] = NAV_ITEMS
+  currentRoute: string = ''
 
-  constructor(private router: Router){}
+  router = inject(Router)
 
   ngOnInit(): void{
-    console.log(this.router)
-    console.log(this.router.url)
+    this.currentRoute = this.router.url
+    this.router.events
+    .pipe(
+      filter((event: any) => event instanceof NavigationStart)
+    ).subscribe(event => { this.currentRoute = event.url});
+  }
+
+  navigate(link: string): void{
+    this.router.navigateByUrl(link);
   }
 }

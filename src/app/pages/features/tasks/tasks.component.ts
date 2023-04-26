@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `<router-outlet></router-outlet>`,
-  styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
 

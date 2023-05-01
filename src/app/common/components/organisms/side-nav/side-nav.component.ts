@@ -3,13 +3,24 @@ import { CommonModule } from '@angular/common';
 import { NavigationStart, Router} from '@angular/router';
 import { filter } from 'rxjs';
 import { SideNavItemInterface } from 'src/app/common/interfaces/sidenav-item';
+import { NavItemsService } from 'src/app/common/services/nav-items.service';
+import { NavItemInterface } from 'src/app/common/interfaces/nav-item';
 
-const NAV_ITEMS = [
+const NAV_ITEMS: SideNavItemInterface[] = [
   {
     title: 'Tarefas',
     class: 'bx bx-task bx-sm v-icon',
     link: '/tarefas/agora',
-    chids: {}
+    childs: [
+      {
+        title: 'Agora',
+        link: '/agora',
+       },
+       {
+        title: 'Disponíveis',
+        link: '/disponiveis',
+       }
+    ]
   },
   {
     title: 'Bugs',
@@ -33,13 +44,20 @@ const NAV_ITEMS = [
 export class SideNavComponent implements OnInit{
   navItems: SideNavItemInterface[] = NAV_ITEMS
   currentRoute: string = ''
-  currentPosition = 15.4
+  childs: NavItemInterface[] = []
+  currentPosition = 5.4
+  lastPosition = 0
 
   router = inject(Router)
+  navItemService = inject(NavItemsService)
 
   ngOnInit(): void{
     this.currentRoute = this.router.url
     this.initListner()
+  }
+
+  setCurrentNavItems(navItems: NavItemInterface[]){
+    this.navItemService.set(navItems)
   }
 
   initListner(){
@@ -48,7 +66,8 @@ export class SideNavComponent implements OnInit{
       ).subscribe(event => { this.currentRoute = event.url});
   }
 
-  navigate(link: string, index: number): void{
+  navigate(link: string, index: number, childs: NavItemInterface[]): void{
+    this.setCurrentNavItems(childs)
     this.router.navigateByUrl(link)
     .then(() => {
       this.animatePoint(index)
@@ -58,10 +77,15 @@ export class SideNavComponent implements OnInit{
     });
   }
 
+  lastIndex: number = 1
   animatePoint(index: number){
-    let position = 15.4 + (53.6 * (index - 1))
-    console.log(index)
-    console.log(position)
-    this.currentPosition = position;
+    let diference =  index - this.lastIndex
+    if(this.lastIndex < index){
+      this.currentPosition +=  54 * (diference)
+      console.log(this.currentPosition)
+    }else{
+      this.currentPosition -=  54 * (diference * -1)
+    }
+    this.lastIndex = index
   }
 }

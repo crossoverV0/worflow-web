@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import { SideNavItemInterface } from "../interfaces/sidenav-item";
+import { NavItemInterface } from "../interfaces/nav-item";
 
 @Injectable({
    providedIn: 'root'
@@ -8,11 +8,11 @@ import { SideNavItemInterface } from "../interfaces/sidenav-item";
  export class NavItemsService {
    currentItem = new Subject<any>();
 
-   set (item: SideNavItemInterface){
-      this.currentItem.next(item)
+   set (items: NavItemInterface[]){
+      this.currentItem.next(items)
    }
 
-   get currentItem$(): Observable<SideNavItemInterface> {
+   get currentItem$(): Observable<NavItemInterface[]> {
       return this.currentItem.asObservable();
    }
  }

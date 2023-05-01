@@ -1,7 +1,6 @@
 <div class="v-container">
-   <div [ngStyle]="{'top.px': currentPosition}" class="nav-mark"></div>
-   <div (click)="navigate(item.link, i + 1)" *ngFor="let item of navItems; let i = index" class="item-container" [title]="item.title">
-      <!-- <div *ngIf="item.link == currentRoute" class="nav-mark"></div> -->
+   <div [ngStyle]="{'transform': 'translateY('+ currentPosition + 'px)'}" class="nav-mark"></div>
+   <div (click)="navigate(item.link, i + 1, item.childs || [])" *ngFor="let item of navItems; let i = index" class="item-container" [title]="item.title">
       <i style="font-weight: 100;" [class]="item.class" [ngClass]="{ 'active-item': item.link == currentRoute }"></i>
    </div>
 </div>

@@ -13,19 +13,5 @@ export class CurrentTasksComponent {
   constructor(protected themeService: ThemeService) {}
 
   ngOnInit(): void {
-    this.themeService.set('dark')
-  }
-
-  show(){
-    const currentTheme = this.themeService.activeTheme
-    if(currentTheme == 'dark'){
-      this.switchTheme('light')
-    }else{
-      this.switchTheme('dark')
-    }
-  }
-
-  switchTheme(themeName: string){
-    this.themeService.set(`${themeName}`)
   }
 }

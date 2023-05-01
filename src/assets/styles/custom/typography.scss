@@ -25,3 +25,8 @@ h1, .text-heading-1 {
  h6, .text-heading-6{
    font-size: 1.125em;
  }
+
+ .nav-item-text{
+  font-size: 15px;
+  color: var(--disabled-item);
+ }

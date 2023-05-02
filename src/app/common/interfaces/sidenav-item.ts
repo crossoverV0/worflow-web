@@ -5,4 +5,5 @@ export interface SideNavItemInterface{
    class: string
    link: string
    childs?: NavItemInterface[]
+   source?: string
 }

@@ -11,14 +11,15 @@ const NAV_ITEMS: SideNavItemInterface[] = [
     title: 'Tarefas',
     class: 'bx bx-task bx-sm v-icon',
     link: '/tarefas/agora',
+    source: '/tarefa',
     childs: [
       {
         title: 'Agora',
-        link: '/agora',
+        link: '/tarefas/agora',
        },
        {
         title: 'Disponíveis',
-        link: '/disponiveis',
+        link: '/tarefas/disponiveis',
        }
     ]
   },
@@ -47,6 +48,7 @@ export class SideNavComponent implements OnInit{
   childs: NavItemInterface[] = []
   currentPosition = 5.4
   lastPosition = 0
+  lastIndex: number = 1
 
   router = inject(Router)
   navItemService = inject(NavItemsService)
@@ -62,8 +64,8 @@ export class SideNavComponent implements OnInit{
 
   initListner(){
     this.router.events.pipe(
-      filter((event: any) => event instanceof NavigationStart)
-      ).subscribe(event => { this.currentRoute = event.url});
+    filter((event: any) => event instanceof NavigationStart)
+    ).subscribe(event => { this.currentRoute = event.url});
   }
 
   navigate(link: string, index: number, childs: NavItemInterface[]): void{
@@ -77,12 +79,10 @@ export class SideNavComponent implements OnInit{
     });
   }
 
-  lastIndex: number = 1
   animatePoint(index: number){
     let diference =  index - this.lastIndex
     if(this.lastIndex < index){
       this.currentPosition +=  54 * (diference)
-      console.log(this.currentPosition)
     }else{
       this.currentPosition -=  54 * (diference * -1)
     }

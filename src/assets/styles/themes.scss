@@ -21,7 +21,8 @@
 
   //disabled item
   --disabled-item: var(--background-color-400);
-  --active-item: #E2D9FB;
+  --active-item: var(--background-color-200);
+  --active-item-colored: #E2D9FB;
 }
  
 .light-theme {

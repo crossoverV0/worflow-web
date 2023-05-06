@@ -9,7 +9,7 @@ import { NavItemInterface } from 'src/app/common/interfaces/nav-item';
 const NAV_ITEMS: SideNavItemInterface[] = [
   {
     title: 'Tarefas',
-    class: 'bx bx-task bx-sm v-icon',
+    class: 'bx bx-task v-icon',
     link: '/tarefas/agora',
     source: '/tarefa',
     childs: [
@@ -25,12 +25,12 @@ const NAV_ITEMS: SideNavItemInterface[] = [
   },
   {
     title: 'Bugs',
-    class: 'bx bx-bug-alt bx-sm v-icon',
+    class: 'bx bx-bug-alt v-icon',
     link: '/bugs'
   },
   {
     title: 'Notificações',
-    class: 'bx bx-bell bx-sm v-icon',
+    class: 'bx bx-bell v-icon',
     link: '/notificações'
   }
 ]
@@ -46,7 +46,7 @@ export class SideNavComponent implements OnInit{
   navItems: SideNavItemInterface[] = NAV_ITEMS
   currentRoute: string = ''
   childs: NavItemInterface[] = []
-  currentPosition = 5.4
+  currentPosition = 0
   lastPosition = 0
   lastIndex: number = 1
 
@@ -82,9 +82,9 @@ export class SideNavComponent implements OnInit{
   animatePoint(index: number){
     let diference =  index - this.lastIndex
     if(this.lastIndex < index){
-      this.currentPosition +=  54 * (diference)
+      this.currentPosition +=  51 * (diference)
     }else{
-      this.currentPosition -=  54 * (diference * -1)
+      this.currentPosition -=  51 * (diference * -1)
     }
     this.lastIndex = index
   }

@@ -9,13 +9,17 @@
 }
 
 .item-container{
+   width: 100%;
    padding: 8px 12px;
    display: flex;
    align-items: center;
-   border-radius: 2px;
    cursor: pointer;
    &:hover{
+      background-color: var(--background-color-700);
       .v-icon{
+         color: var(--active-item)
+      }
+      .v-nav-text{
          color: var(--active-item)
       }
       .nav-mark{
@@ -26,20 +30,29 @@
 
 .v-icon{
    color: var(--disabled-item);
-   transition: color 0.3s ease;
 }
+
+.v-nav-text{
+   color: var(--disabled-item);
+   user-select: none;
+}
+
 .active-item{
    color: var(--active-item);
+}
+
+.active-background-item{
+   background-color: var(--background-color-600);
 }
 
 .nav-mark{
    position: absolute;
    left: 0px; 
    width: 3px; 
-   height: 30px; 
+   height: 36px; 
    background-color: var(--active-item);
    border-radius: 0 4px 4px 0;
-   transition: transform 0.2s ease;
+   transition: transform 0.4s ease;
 }
 
 @media (max-width: 760px) {
@@ -53,7 +66,7 @@
 
 @media (min-width: 760px){
    .v-container {
-     width: 54px;
+     width: 100px;
      height: 94vh;
      border-right: 1px solid var(--border-sidenave);
    }
@@ -61,7 +74,7 @@
 
 @media (min-width: 920px){
    .v-container {
-     width: 62px;
+     width: 150px;
      height: 94vh;
    }
 }

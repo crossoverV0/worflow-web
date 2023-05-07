@@ -9,10 +9,9 @@
 }
 
 .item-container{
-   width: 90%;
+   width: 100%;
    padding: 5px 10px;
    display: flex;
-   border-radius: 4px;
    align-items: center;
    cursor: pointer;
    transition: background-color 0.1s ease;
@@ -76,7 +75,7 @@
 
 @media (min-width: 920px){
    .v-container {
-     width: 154px;
+     width: 145px;
      height: 94vh;
    }
 }

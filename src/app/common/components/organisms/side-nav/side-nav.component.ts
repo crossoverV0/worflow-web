@@ -9,7 +9,7 @@ import { NavItemInterface } from 'src/app/common/interfaces/nav-item';
 const NAV_ITEMS: SideNavItemInterface[] = [
   {
     title: 'Tarefas',
-    class: 'bx bx-task v-icon',
+    icon: 'dataset',
     link: '/tarefas/agora',
     source: '/tarefa',
     childs: [
@@ -25,13 +25,8 @@ const NAV_ITEMS: SideNavItemInterface[] = [
   },
   {
     title: 'Bugs',
-    class: 'bx bx-bug-alt v-icon',
+    icon: 'bug_report',
     link: '/bugs'
-  },
-  {
-    title: 'Notificações',
-    class: 'bx bx-bell v-icon',
-    link: '/notificações'
   }
 ]
 
@@ -82,9 +77,9 @@ export class SideNavComponent implements OnInit{
   animatePoint(index: number){
     let diference =  index - this.lastIndex
     if(this.lastIndex < index){
-      this.currentPosition +=  51 * (diference)
+      this.currentPosition +=  47 * (diference)
     }else{
-      this.currentPosition -=  51 * (diference * -1)
+      this.currentPosition -=  47 * (diference * -1)
     }
     this.lastIndex = index
   }

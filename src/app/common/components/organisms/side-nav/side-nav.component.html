@@ -7,13 +7,13 @@
    [ngClass]="{ 'active-background-item': currentRoute.includes(item.source || item.link) }" 
    [title]="item.title"
    >
-      <i 
-      style="font-weight: 100; font-size: 20px; margin-right: 0.4rem; margin-left: 4px;" 
-      [class]="item.class" 
+      <span
       [ngClass]="{ 'active-item': currentRoute.includes(item.source || item.link) }"
-      ></i>
+      style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48; margin-right: 10px;" 
+      class="material-symbols-outlined v-icon"
+      >{{item.icon}}</span>
       <a 
-      class="nav-text v-nav-text" style="text-decoration: none;" 
+      class="v-nav-text title-300" style="text-decoration: none;" 
       [ngClass]="{ 'active-item': currentRoute.includes(item.source || item.link) }"
       >{{item.title}}</a>
    </nav>

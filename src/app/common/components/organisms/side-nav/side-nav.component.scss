@@ -9,11 +9,13 @@
 }
 
 .item-container{
-   width: 100%;
-   padding: 8px 12px;
+   width: 90%;
+   padding: 5px 10px;
    display: flex;
+   border-radius: 4px;
    align-items: center;
    cursor: pointer;
+   transition: background-color 0.1s ease;
    &:hover{
       background-color: var(--background-color-700);
       .v-icon{
@@ -49,7 +51,7 @@
    position: absolute;
    left: 0px; 
    width: 3px; 
-   height: 36px; 
+   height: 33px; 
    background-color: var(--active-item);
    border-radius: 0 4px 4px 0;
    transition: transform 0.4s ease;
@@ -74,7 +76,7 @@
 
 @media (min-width: 920px){
    .v-container {
-     width: 150px;
+     width: 154px;
      height: 94vh;
    }
 }

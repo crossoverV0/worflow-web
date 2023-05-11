@@ -77,9 +77,9 @@ export class SideNavComponent implements OnInit{
   animatePoint(index: number){
     let diference =  index - this.lastIndex
     if(this.lastIndex < index){
-      this.currentPosition +=  47 * (diference)
+      this.currentPosition +=  50 * (diference)
     }else{
-      this.currentPosition -=  47 * (diference * -1)
+      this.currentPosition -=  50 * (diference * -1)
     }
     this.lastIndex = index
   }

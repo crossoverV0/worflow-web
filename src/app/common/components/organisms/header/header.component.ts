@@ -4,6 +4,7 @@ import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { NavItemInterface } from 'src/app/common/interfaces/nav-item';
 import { NavItemsService } from 'src/app/common/services/nav-items.service';
+import { BadgeComponent } from '../../atoms/badge/badge.component';
 
 @Component({
   selector: 'app-header',

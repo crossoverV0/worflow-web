@@ -11,6 +11,9 @@
 }
 
 .dark-theme {
+  // text
+  --normal-text: var(--background-color-200);
+
   // background-color
   --bg-color-sidenave: var(--background-color-800);
   --bg-color-header: var(--background-color-900);
@@ -23,6 +26,8 @@
   --disabled-item: var(--background-color-400);
   --active-item: var(--background-color-200);
   --active-item-colored: #E2D9FB;
+
+  --color-info: #2467E4;
 }
  
 .light-theme {

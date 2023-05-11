@@ -9,12 +9,12 @@
    >
       <span
       [ngClass]="{ 'active-item': currentRoute.includes(item.source || item.link) }"
-      style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48; margin-right: 10px;" 
+      style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;" 
       class="material-symbols-outlined v-icon"
       >{{item.icon}}</span>
-      <a 
+      <!-- <a 
       class="v-nav-text title-300" style="text-decoration: none;" 
       [ngClass]="{ 'active-item': currentRoute.includes(item.source || item.link) }"
-      >{{item.title}}</a>
+      >{{item.title}}</a> -->
    </nav>
 </div>

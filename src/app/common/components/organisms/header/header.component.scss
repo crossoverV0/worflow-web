@@ -1,10 +1,12 @@
 .v-container{
    display: grid;
+   position: fixed;
+   z-index: 1;
    grid-template-columns: 4% 80% 16%;
    background-color: var(--bg-color-header);
    border-bottom: 1px solid var(--border-sidenave);
    width: 100%;
-   height: 6vh;
+   height: 49px;
 }
 
 .c-nav-items{

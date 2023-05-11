@@ -1,5 +1,7 @@
 .v-container{
-   position: relative;
+   position: fixed;
+   bottom: 0px;
+   z-index: 1;
    background-color: var(--bg-color-sidenave);
    display: flex;
    flex-direction: column;
@@ -76,6 +78,6 @@
 @media (min-width: 920px){
    .v-container {
      width: 145px;
-     height: 94vh;
+     height: calc(100% - 49px);
    }
 }

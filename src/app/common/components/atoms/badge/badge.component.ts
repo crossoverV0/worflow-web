@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BadgeInterface } from 'src/app/common/interfaces/badge';
 
@@ -10,7 +10,7 @@ import { BadgeInterface } from 'src/app/common/interfaces/badge';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent {
-  public content: BadgeInterface = {
+  @Input() public content: BadgeInterface = {
     texto: 'Formulário',
     tema: 'INFORMACAO',
     size: 'small'

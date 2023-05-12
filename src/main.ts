@@ -4,7 +4,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, RouterModule } from '@angular/router';
 import { AppComponent } from './app/app.component';
-import { APP_ROUTES } from './app/app.routes';
+import { APP_ROUTES } from './app/pages/routes/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [

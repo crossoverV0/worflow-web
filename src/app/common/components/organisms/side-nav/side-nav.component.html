@@ -1,6 +1,5 @@
 <div class="d-flex">
    <div class="v-container">
-      <!-- <div [ngStyle]="{'transform': 'translateY('+ currentPosition + 'px)'}" class="nav-mark"></div> -->
       <nav
       *ngFor="let item of navItems let i = index" 
       (click)="navigate(item.link, i + 1, item.childs || [])" 
@@ -13,6 +12,12 @@
          style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;" 
          class="material-symbols-outlined v-icon"
          >{{item.icon}}</span>
+      </nav>
+   </div>
+   <div *ngIf="moreDetails" class="c-more-details">
+      <nav 
+      *ngFor="let child of childs let i = index">
+      {{screenWidth}}
       </nav>
    </div>
 </div>

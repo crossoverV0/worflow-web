@@ -61,9 +61,13 @@
 }
 
 .c-more-details{
-   width: 70px;
+   width: 170px;
    height: calc(100% - 49px);
    background-color: var(--bg-color-sidenave);
+   position: fixed;
+   z-index: 1;
+   bottom: 0px;
+   left: 70px;
 }
 
 @media (max-width: 760px) {

@@ -37,7 +37,6 @@ export class HeaderComponent implements OnInit{
   }
 
   navigate(link: string){
-    console.log('ola mundo')
     this.#router.navigateByUrl(link)
   }
 }

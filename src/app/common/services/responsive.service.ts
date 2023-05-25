@@ -5,15 +5,14 @@ import { BehaviorSubject, Observable, Subject } from "rxjs";
    providedIn: 'root'
  })
  export class ResponsiveService{
-   contentMargin = new Subject<any>();
+   contentMargin = new BehaviorSubject<any>('mc-0');
 
-   get contentMargin$(): Observable<any[]> {
+   get contentMargin$(): Observable<string> {
       return this.contentMargin.asObservable();
    }
 
-   resizingContent(size: any){
-      if(size >= 1440){
-         this.contentMargin.next(170)
-      }
+   resizingContent(marginClass: string){
+      // if(size >= 1440){
+      this.contentMargin.next(marginClass)
    }
  }

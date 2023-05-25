@@ -16,5 +16,10 @@ export const TASKS_ROUTES: Routes = [
     loadComponent: () => import('../available/available.component')
     .then((c) => c.AvailableComponent),
   },
+  {
+    path: 'bugs',
+    loadComponent: () => import('../bugs/bugs.component')
+    .then((c) => c.BugsComponent),
+  },
 
  ];

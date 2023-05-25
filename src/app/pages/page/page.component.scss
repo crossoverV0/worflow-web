@@ -2,6 +2,15 @@
    background-color: #1E1E1E;
    width: 100%;
    height: auto;
-   margin-left: 70px;
+   min-height: calc(100vh - 49px);
    margin-top: 49px;
+}
+
+.mc-0{
+   margin-left: 60px;
+}
+
+.mc-1{
+   margin-left: 230px;
+   transition: margin 0.3s;
 }

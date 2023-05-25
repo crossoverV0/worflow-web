@@ -2,7 +2,7 @@
    <div class="v-container">
       <nav
       *ngFor="let item of navItems let i = index" 
-      (click)="navigate(item.link, i + 1, item.childs || [])" 
+      (click)="onCLickItem(item.link, i + 1, item.childs || [])" 
       class="item-container"
       [ngClass]="{ 'active-background-item': currentRoute.includes(item.source || item.link) }" 
       [title]="item.title"
@@ -14,10 +14,24 @@
          >{{item.icon}}</span>
       </nav>
    </div>
-   <div *ngIf="moreDetails" class="c-more-details">
+   <div 
+      *ngIf="childs.length > 0" class="c-more-details d-flex flex-column align-items-center"
+      >
       <nav 
-      *ngFor="let child of childs let i = index">
-      {{screenWidth}}
+      *ngFor="let child of childs; let i = index"
+      class="child-item-container"
+      [ngClass]="i == 0 ? 'mt-3' : 'mt-2' "
+      [class.active-child-item]="currentRoute === child.link"
+      (click)="onClickChildItem(child.link)"
+      >
+         <span
+         style="font-size: 18px;" 
+         class="material-symbols-outlined"
+         >{{child.icon}}</span>
+         <span
+         class="nav-text">
+         {{child.title}}
+         </span>
       </nav>
    </div>
 </div>

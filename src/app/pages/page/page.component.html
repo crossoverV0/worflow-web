@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div style="display: flex;">
    <app-side-nav></app-side-nav>
-   <section class="v-content">
+   <section class="v-content" [ngClass]="marginContent">
       <router-outlet></router-outlet>
    </section>
 </div>

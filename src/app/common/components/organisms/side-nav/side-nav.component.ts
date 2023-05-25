@@ -17,18 +17,20 @@ const NAV_ITEMS: SideNavItemInterface[] = [
       {
         title: 'Agora',
         link: '/tarefas/agora',
+        icon: 'timer'
        },
        {
         title: 'Disponíveis',
         link: '/tarefas/disponiveis',
+        icon: 'view_list'
+       },
+       {
+        title: 'Bugs',
+        link: '/tarefas/bugs',
+        icon: 'bug_report'
        }
     ]
   },
-  {
-    title: 'Bugs',
-    icon: 'bug_report',
-    link: '/bugs'
-  }
 ]
 
 @Component({
@@ -43,13 +45,7 @@ export class SideNavComponent implements OnInit{
   currentRoute: string = ''
   childs: NavItemInterface[] = []
 
-
-  currentPosition = 0
-  lastPosition = 0
-  lastIndex: number = 1
   screenWidth: number = 0
-
-  moreDetails: boolean = false
 
   router = inject(Router)
   navItemService = inject(NavItemsService)
@@ -65,6 +61,7 @@ export class SideNavComponent implements OnInit{
     this.currentRoute = this.router.url
     this.initListner()
     this.screenWidth = window.innerWidth
+    this.childs = this.navItems.filter(e => e.link == this.currentRoute)[0].childs ?? []
   }
 
   setCurrentNavItems(navItems: NavItemInterface[]){
@@ -77,39 +74,37 @@ export class SideNavComponent implements OnInit{
     ).subscribe(event => { this.currentRoute = event.url});
   }
 
-  navigate(link: string, index: number, childs: NavItemInterface[]): void{
-    // this.setCurrentNavItems(childs)
-    // this.router.navigateByUrl(link)
-    // .then(() => {
-    //   this.animatePoint(index)
-    // })
-    // .catch(error => {
-    //   alert("Essa rota não existe!");
-    // });
-    if(childs.length > 0){
-      this.showMoreDetails(this.screenWidth)
+  onCLickItem(link: string, index: number, childs: NavItemInterface[]): void{
+    if(childs.length > 0 && this.childs.length > 0) return
+    if(childs.length == 0 && this.childs.length == 0) return
+    if(childs.length > 0 && this.childs.length == 0) {
       this.childs = childs
-    } else {
-      this.moreDetails = false
-      this.router.navigateByUrl(link)
-      .catch(error => {
-        alert("Essa rota não existe!");
-      });
+      this.resizingScreen('OPEN')
+    }
+    if(childs.length == 0 && this.childs.length > 0) {
+      this.childs = []
+      this.resizingScreen('CLOSE')
+    }
+
+    this.navigate(link)
+  }
+
+  onClickChildItem(link: string){
+    this.navigate(link)
+  }
+
+  resizingScreen(action: string){
+    if(this.screenWidth >= 1440 && action == 'OPEN'){
+      this.reponsiveService.resizingContent('mc-1')
+    }else{
+      this.reponsiveService.resizingContent('mc-0')
     }
   }
 
-  showMoreDetails(screenWidth: number){
-    this.moreDetails = true
-    this.reponsiveService.resizingContent(screenWidth)
+  navigate(link: string){
+    this.router.navigateByUrl(link)
+    .catch(error => {
+      alert("Essa rota não existe!");
+    });
   }
-
-  // animatePoint(index: number){
-  //   let diference =  index - this.lastIndex
-  //   if(this.lastIndex < index){
-  //     this.currentPosition +=  50 * (diference)
-  //   }else{
-  //     this.currentPosition -=  50 * (diference * -1)
-  //   }
-  //   this.lastIndex = index
-  // }
 }
